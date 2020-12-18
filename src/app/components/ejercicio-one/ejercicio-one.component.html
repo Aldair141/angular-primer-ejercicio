@@ -1,0 +1,17 @@
+<div class="card">
+    <div class="card-header">
+      <input type="text" class="form-control" #txtnombre (keyup.enter)="guardar($event)">
+    </div>
+    <div class="card-body">
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let nom of miLista; index as i">{{ nom }} <button class="badge badge-danger" (click)="eliminar(i)">Eliminar</button></li>
+        </ul>
+
+        <div class="alert alert-danger" *ngIf="miLista.length == 0" role="alert">
+          No hay registros para mostrar!
+        </div>
+    </div>
+    <div class="card-footer" *ngIf="miLista.length > 0">
+        <h6>Registros: {{ miLista.length }}</h6>
+    </div>
+  </div>
